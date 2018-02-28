@@ -85,7 +85,7 @@ nav{
     bottom: 0;
 }
 
-.access-universe *{
+.access-universe form h2,  .access-universe form .input-field *{
     color: var(--red) !important;
 }
 
@@ -94,7 +94,17 @@ nav{
 }
 
 .carousel{
-    height: 100% !important;
+    height: calc(100% - 50px) !important;
+}
+
+.carousel-item{
+    position: relative;
+    padding-right: 10%;
+}
+
+.carousel-item *{
+    position: relative;
+    top: 40%; /* poussé de la moitié de hauteur du référent */
 }
 
 

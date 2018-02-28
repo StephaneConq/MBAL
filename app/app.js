@@ -8,11 +8,11 @@ angular.module('myApp', [
     'myApp.version'
 ])
 
-.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+        $locationProvider.hashPrefix('!');
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
-}])
+        $routeProvider.otherwise({redirectTo: '/view1'});
+    }])
 
     .controller('ctrl', function($scope){
 
@@ -38,9 +38,12 @@ angular.module('myApp', [
         function materializeInit(){
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true,
-                indicators: true
+                indicators: false
             });
-        }
 
+            setInterval(function(){
+                $('.carousel').carousel('next');
+            }, 5000);
+        }
 
     });
