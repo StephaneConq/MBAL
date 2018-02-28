@@ -1,25 +1,105 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+body{
+    --yellow: #eecf6d;
+    --dark-yellow: #d5ac4e;
+    --brown: #8b6220;
+    --red: #720e07;
+    --dark-red: #45050c;
 }
 
-.menu:before {
-  content: "[";
+html, body{
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark-yellow);
 }
 
-.menu:after {
-  content: "]";
+/* HELPERS */
+
+.dark-red-bg{
+    background-color: var(--dark-red) !important;
 }
 
-.menu > li {
-  display: inline;
+.red-bg{
+    background-color: var(--red) !important;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+.dark-yellow-bg{
+    background-color: var(--dark-yellow) !important;
+}
+
+.yellow-bg{
+    background-color: var(--yellow) !important;
+}
+
+.brown-bg{
+    background-color: var(--brown) !important;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.white-text{
+    color: white;
+}
+
+.full-height{
+    height: 100% !important;
+}
+
+/* CAROUSEL */
+
+.one{
+    background: url("http://www.a3coaching.com/wp-content/uploads/2013/05/gestion-tiempo22.png") no-repeat left;
+    background-size: contain;
+}
+
+.two{
+    background: url("images/famille_clean.png") left no-repeat;
+    background-size: contain;
+}
+
+.three{
+    background: url("images/iphone.png") left no-repeat;
+    background-size: contain;
+}
+
+/* CUSTOMIZATION */
+
+nav{
+    width: 100%;
+    height: 50px;
+}
+
+.brand-logo{
+    margin-left: 50px;
+}
+
+.page-footer{
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.access-universe *{
+    color: var(--red) !important;
+}
+
+.access-universe{
+    height: 50%;
+}
+
+.carousel{
+    height: 100% !important;
+}
+
+
+/* FORM */
+input[type="email"]:not(.browser-default), input[type="password"]:not(.browser-default){
+    border-bottom: 1px solid var(--red) !important;
+    box-shadow: 0 1px 0 0 var(--red) !important;
 }
