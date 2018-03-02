@@ -59,7 +59,7 @@ html, body{
 }
 
 .two{
-    background: url("images/famille_clean.png") left no-repeat;
+    background: url("images/famille_clean.png") right no-repeat;
     background-size: contain;
 }
 
@@ -97,9 +97,14 @@ nav{
     height: calc(100% - 50px) !important;
 }
 
-.carousel-item{
+.carousel-item.right-align{
     position: relative;
     padding-right: 10%;
+}
+
+.carousel-item.left-align{
+    position: relative;
+    padding-left: 10%;
 }
 
 .carousel-item *{
