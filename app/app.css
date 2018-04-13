@@ -124,4 +124,27 @@ input[type="email"]:not(.browser-default), input[type="password"]:not(.browser-d
 }
 
 
+/* NG VIEW */
+.slide {
+    position: absolute;
+    width: 100%;
+}
+.slide.ng-enter,
+.slide.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.slide.ng-enter {
+    left: 100%;
+}
+.slide.ng-enter-active {
+    left: 0;
+}
+.slide.ng-leave {
+    left: 0;
+}
+.slide.ng-leave-active {
+    left: -100%;
+}
+
 

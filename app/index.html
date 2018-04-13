@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-controller="ctrl as ctrl">
@@ -30,10 +30,54 @@
     </div>
 </nav>
 
-<div class="carousel carousel-slider center">
-    <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2">button</a>
+<div id="subscribeModal" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Inscription</h4>
+        <div class="row">
+            <form name="subscribeForm">
+                <div class="col s6 input-field">
+                    <input id="nom" type="text" class="validate" ng-model="userInfo['name']" required>
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input id="prenom" type="text" class="validate" ng-model="userInfo['prenom']" required>
+                    <label for="prenom">Prénom</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input id="mail" type="email" class="validate" ng-model="userInfo['mail']" required>
+                    <label for="mail">Adresse email</label>
+                </div>
+                <div class="col s6 input-field">
+                    <input id="pass" type="password" class="validate" ng-model="userInfo['password']" required>
+                    <label for="pass">Mot de passe</label>
+                </div>
+                <div class="col s12">
+                    <div class="col s3"></div>
+                    <div class="col s6 input-field">
+                        <input id="tel" type="number" class="validate" ng-model="userInfo['num_tel']" required>
+                        <label for="tel">Téléphone</label>
+                    </div>
+                    <div class="col s3"></div>
+                </div>
+                <div class="col s12">
+                    <div class="col s3"></div>
+                    <div class="col s6 center-align">
+                        <button class="btn waves-effect waves-light" ng-click="ctrl.createUser(userInfo)" ng-disabled="subscribeForm.$invalid" type="submit" name="action">S'inscrire
+                            <i class="material-icons right">send</i>
+                        </button>
+
+                    </div>
+                    <div class="col s3"></div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
+<div class="carousel carousel-slider center">
+    <!--<div class="carousel-fixed-item center">
+        <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>-->
     <div class="carousel-item red-bg white-text one right-align" href="#one!">
         <h2>GESTION</h2>
         <p class="white-text">This is your first panel</p>
@@ -48,7 +92,43 @@
     </div>
 </div>
 
-<div ng-view></div>
+<div class="access-universe" id="access-universe">
+    <div class="row container dark-yellow-bg">
+
+        <div class="col s3">
+        </div>
+
+        <form class="col s6 center">
+            <h2 class="center-align">ACCÉDEZ À L'UNIVERS</h2>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate" ng-model="user.username">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" ng-model="user.password">
+                    <label for="password">Mot de passe</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <div class="col s6 center-align">
+                    <a href="#subscribeModal" class="waves-effect waves-light btn red-bg modal-trigger">Inscription</a>
+                </div>
+                <div class="col s6 center-align">
+                    <button ng-click="ctrl.loginFct(user);" class="btn waves-effect waves-light red-bg" type="submit" name="action">Se connecter
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="col s3 valign-wrapper">
+        </div>
+
+    </div>
+</div>
 
 <footer class="page-footer red-bg">
     <div class="footer-copyright dark-red-bg full-width">
@@ -62,16 +142,14 @@
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+<script src="service/mbal-service.js"></script>
 <script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+
 </body>
 </html>
