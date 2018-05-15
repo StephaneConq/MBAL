@@ -7,9 +7,17 @@ angular.module('myApp', [
     'ngAnimate'
 ])
 
-    .controller('ctrl', function($scope, Service){
+    .controller('ctrl', function($scope, Service, $timeout){
 
         var ctrl = this;
+
+
+        var preloader = document.querySelector('#preloader');
+        if (! preloader.showModal) {
+            dialogPolyfill.registerDialog(preloader);
+        }
+        preloader.showModal();
+
 
         Service.f_getToken().then(function () {
             ctrl.userInfos = {
@@ -25,6 +33,7 @@ angular.module('myApp', [
                         localStorage.setItem('error', 'Merci de réessayer de vous connecter');
                         // window.location = '/'
                     }
+                    preloader.close();
                     console.log('ctrl.user', ctrl.user);
                 }, function (err) {
                     localStorage.setItem('error', 'Merci de réessayer de vous connecter');
@@ -36,6 +45,25 @@ angular.module('myApp', [
             }
         });
 
+        ctrl.currentPage = 'accueil';
+
+        ctrl.showPanel = function (toSlide) {
+            console.log('to slide', toSlide);
+            console.log(toSlide !== '#' + ctrl.currentPage);
+            if (toSlide !== '#' + ctrl.currentPage) {
+                $( ".demo-content" ).each(function (key, elt) {
+                    if(elt.id !== toSlide.replace('#', '')) {
+                        console.log('id', elt.id);
+                        $(this).toggle( "slide" );
+                    }
+                });
+                $( toSlide ).toggle( "slide" );
+                console.log('slided', toSlide);
+                ctrl.currentPage = toSlide.replace('#', '');
+            }
+        };
+
+
         ctrl.logout = function () {
             Service.f_logout(ctrl.userInfos['session_id']).then(function (success) {
                 console.log('success logout', success);
@@ -46,6 +74,8 @@ angular.module('myApp', [
             }, function (err) {
                 console.error('error', err);
             })
-        }
+        };
+
+
 
     });
