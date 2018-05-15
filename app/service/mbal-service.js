@@ -2,7 +2,11 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
 
     var Service = this;
 
-    const api = "https://serveurpi.ddns.net/MBAL";
+    const api = "https://www.mbal.ovh/MBAL";
+
+    const apiUsers = api + "/api/user";
+
+    const apiFamily = api + "/api/family";
 
     var tokenConfig = {
         method: 'POST',
@@ -18,10 +22,46 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
             console.log('token fetched', success.data['access_token']);
         }, function (err) {
             console.error("error", err);
+            return err;
         });
     };
 
+    Service.f_getUserDetails = function (username) {
+        var req = {
+            method : "POST",
+            url: apiUsers + "/getUserByName",
+            params: {
+                username: username
+            },
+            headers: {
+                "Authorization":"Bearer "+Service.token
+            }
+        };
+        return $http(req).then(function (success) {
+            console.log('success', success);
+            return success;
+        }, function (err) {
+            console.error("error", err);
+            return err;
+        });
+    };
 
+    Service.f_getPathImage = function (image) {
+        var req = {
+            method : "GET",
+            url: apiUsers + "/files/getUserByName/" + username + "/",
+            headers: {
+                "Authorization":"Bearer "+Service.token
+            }
+        };
+        return $http(req).then(function (success) {
+            console.log('success', success);
+            return success;
+        }, function (err) {
+            console.error("error", err);
+            return err;
+        });
+    };
 
 
     Service.f_login = function (username, pass) {
@@ -38,6 +78,7 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
             return data;
         }, function (err) {
             console.error("error", err);
+            return err;
         });
 
     };
@@ -64,8 +105,26 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
             return data;
         }, function (err) {
             console.error("error", err);
+            return err;
         });
 
+    };
+
+    Service.f_logout = function (session_id) {
+        var req = {
+            method : "GET",
+            url: apiUsers+"/logout/" + session_id,
+            headers: {
+                "Authorization":"Bearer "+Service.token
+            }
+        };
+
+        return $http(req).then(function (data) {
+            return data;
+        }, function (err) {
+            console.error("error", err);
+            return err;
+        });
     };
 
 

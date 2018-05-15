@@ -78,15 +78,15 @@
     <!--<div class="carousel-fixed-item center">
         <a class="btn waves-effect white grey-text darken-text-2">button</a>
     </div>-->
-    <div class="carousel-item red-bg white-text one right-align" href="#one!">
+    <div class="carousel-item red-bg white-text one right-align">
         <h2>GESTION</h2>
         <p class="white-text">This is your first panel</p>
     </div>
-    <div class="carousel-item yellow-bg white-text two left-align" href="#two!">
+    <div class="carousel-item yellow-bg white-text two left-align">
         <h2>FAMILLE</h2>
         <p class="white-text">This is your second panel</p>
     </div>
-    <div class="carousel-item brown-bg white-text three right-align" href="#three!">
+    <div class="carousel-item brown-bg white-text three right-align">
         <h2>MOBILE APP</h2>
         <p class="white-text">This is your third panel</p>
     </div>
@@ -130,6 +130,16 @@
     </div>
 </div>
 
+<div id="errorDialog" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align red-text">Erreur</h4>
+        <p class="center-align">{{ ctrl.errorOnInit }}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fermer</a>
+    </div>
+</div>
+
 <footer class="page-footer red-bg">
     <div class="footer-copyright dark-red-bg full-width">
         <div class="container center-align">
@@ -137,7 +147,6 @@
         </div>
     </div>
 </footer>
-
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

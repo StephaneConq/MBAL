@@ -90,7 +90,7 @@ nav{
 }
 
 .access-universe form h2,  .access-universe form .input-field *{
-    color: var(--red) !important;
+    color: white !important;
 }
 
 .access-universe{
@@ -146,5 +146,4 @@ input[type="email"]:not(.browser-default), input[type="password"]:not(.browser-d
 .slide.ng-leave-active {
     left: -100%;
 }
-
 
