@@ -235,7 +235,27 @@ _:-ms-input-placeholder, :root .demo-graph {
 .dashboard-title h1{
     width: 100%;
     text-align: center;
+    color: #cfd8dc;
+    font-weight: bolder;
+    height: 100%;
+    margin-top: 0;
+    line-height: 100px;
 }
+
+.dashboard-title{
+    background: url("images/calm-waters-clouds-cold-910310.jpg") no-repeat center;
+    background-size: cover;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 

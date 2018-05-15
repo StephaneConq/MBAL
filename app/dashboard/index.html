@@ -105,12 +105,15 @@
             <a class="mdl-navigation__link logout" href="" ng-click="ctrl.logout()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">power_settings_new</i><span class="">Déconnexion</span></a>
         </nav>
     </div>
+
+
     <main class="mdl-layout__content mdl-color--grey-100">
+
         <div class="mdl-grid demo-content main-dashboard" id="accueil">
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid dashboard-title">
                 <h1 ng-show="ctrl.userInfos">Bienvenue {{ ctrl.user['prenom'] }} !</h1>
             </div>
-            <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+            <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col family-members">
                 <h1>VIDE</h1>
             </div>
             <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
@@ -165,11 +168,15 @@
             </div>
         </div>
 
-
         <div class="mdl-grid demo-content edit-profile" id="profil">
-            <h1>SLIDE 2</h1>
+            <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col family-members">
+                <h1>VIDE</h1>
+            </div>
         </div>
+
     </main>
+
+
 </div>
 
 
