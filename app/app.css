@@ -147,3 +147,8 @@ input[type="email"]:not(.browser-default), input[type="password"]:not(.browser-d
     left: -100%;
 }
 
+#errorMessage {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+

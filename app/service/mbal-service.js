@@ -13,7 +13,8 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
         url: api+"/oauth/token?grant_type=password&username=admin&password=Valentin34",
         headers: {
             "Authorization":"Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0"
-        }
+        },
+        timeout: 3000
     };
 
     Service.f_getToken = function () {
@@ -21,7 +22,7 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
             Service.token = success.data['access_token'];
             console.log('token fetched', success.data['access_token']);
         }, function (err) {
-            console.error("error", err);
+            localStorage.setItem("error","Serveur indisponible !\nVeuillez réessayer plus tard");
             return err;
         });
     };

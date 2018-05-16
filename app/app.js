@@ -15,7 +15,7 @@ angular.module('myApp', [
 
         Service.f_getToken();
 
-        if(localStorage.getItem('error') !== 'null') {
+        if(localStorage.getItem('error') && localStorage.getItem('error') !== 'null') {
             console.log("localStorage.getItem('error')", localStorage.getItem('error'));
             ctrl.errorOnInit = localStorage.getItem('error');
             $('.modal').modal();
