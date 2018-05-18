@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="material.min.css">
 
 </head>
-<img ng-controller="ctrl as ctrl">
+<body ng-controller="ctrl as ctrl">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -46,7 +46,7 @@
                 <img id="logo-img" src="images/logo-MBAL.png"/>
             </div>
 
-            <form action="#">
+            <form>
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="email" id="mail" ng-model="user.username">
                     <label class="mdl-textfield__label" for="mail">Adresse mail</label>
@@ -55,14 +55,15 @@
                     <input class="mdl-textfield__input" type="password" id="pass" ng-model="user.password">
                     <label class="mdl-textfield__label" for="pass">Mot de passe</label>
                 </div>
-                <div class="center-align connection-button">
-                    <button ng-click="ctrl.loginFct(user);" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-                        CONNEXION
-                    </button>
-                </div>
             </form>
+            <div class="center-align connection-button">
+                <button ng-click="ctrl.loginFct(user);" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                    CONNEXION
+                </button>
+            </div>
 
         </div>
+
         <div class="mdl-tabs__panel" id="signup">
             <ul>
                 <li>Tywin</li>

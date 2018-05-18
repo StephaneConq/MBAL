@@ -30,9 +30,7 @@ angular.module('myApp', [
         };
 
         ctrl.loginFct = function (user) {
-            console.log(user);
             Service.f_login(user.username, user.password).then(function (data) {
-                console.log(data);
                 if(data.data.response.includes('-')){
                     localStorage.setItem('userMail', user.username);
                     localStorage.setItem('userSessionID',data.data.response);
