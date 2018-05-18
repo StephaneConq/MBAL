@@ -8,6 +8,8 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
 
     const apiFamily = api + "/api/family";
 
+    const apiEvent = api + '/api/event';
+
     var tokenConfig = {
         method: 'POST',
         url: api+"/oauth/token?grant_type=password&username=admin&password=Valentin34",
@@ -51,6 +53,23 @@ angular.module('Service', []).factory('Service', function($http, $timeout){
         var req = {
             method : "GET",
             url: apiUsers + "/files/getUserByName/" + username + "/",
+            headers: {
+                "Authorization":"Bearer "+Service.token
+            }
+        };
+        return $http(req).then(function (success) {
+            console.log('success', success);
+            return success;
+        }, function (err) {
+            console.error("error", err);
+            return err;
+        });
+    };
+
+    Service.f_getEventsByFamily = function (family) {
+        var req = {
+            method : "GET",
+            url: apiEvent + "/getAllEventsByFamily/" + family,
             headers: {
                 "Authorization":"Bearer "+Service.token
             }

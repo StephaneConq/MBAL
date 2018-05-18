@@ -18,15 +18,15 @@ angular.module('myApp', [
         if(localStorage.getItem('error') && localStorage.getItem('error') !== 'null') {
             console.log("localStorage.getItem('error')", localStorage.getItem('error'));
             ctrl.errorOnInit = localStorage.getItem('error');
-            $('.modal').modal();
+            // $('.modal').modal();
             $timeout(function () {
-                $('#errorDialog').modal('open');
+                // $('#errorDialog').modal('open');
             }, 1000);
-            localStorage.setItem('error', 'null');
+            localStorage.setItem('error', null);
         }
 
         ctrl.closeModal = function(modal){
-            document.querySelector(modal).close();
+            // document.querySelector(modal).close();
         };
 
         ctrl.loginFct = function (user) {
@@ -36,10 +36,10 @@ angular.module('myApp', [
                     localStorage.setItem('userSessionID',data.data.response);
                     window.location = '/dashboard/index.html';
                 }else{
-                    M.toast({html: data.data.response});
+                    // M.toast({html: data.data.response});
                 }
             }, function (err) {
-                M.toast({html: err.data.response});
+                // M.toast({html: err.data.response});
             })
         };
 
@@ -64,23 +64,6 @@ angular.module('myApp', [
 
         });
 
-        $(document).ready(function () {
-            materializeInit();
-        });
 
-        function materializeInit(){
-            $('.carousel.carousel-slider').carousel({
-                fullWidth: true,
-                indicators: false
-            });
-
-            $('.modal').modal();
-
-            $('.tooltipped').tooltip({delay: 50});
-
-            setInterval(function(){
-                $('.carousel').carousel('next');
-            }, 5000);
-        }
 
     });

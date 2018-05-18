@@ -29,6 +29,7 @@ angular.module('myApp', [
                     console.log('after getting user details', success);
                     if (success.status === 200){
                         ctrl.user = success.data;
+                        getFamilyEvents(ctrl.user.family.name);
                     } else {
                         localStorage.setItem('error', 'Merci de réessayer de vous connecter');
                         // window.location = '/'
@@ -44,6 +45,14 @@ angular.module('myApp', [
                 window.location = '/'
             }
         });
+
+        function getFamilyEvents(family) {
+            Service.f_getEventsByFamily(family).then(function (success) {
+                console.log('successfully fetched events', success);
+            }, function(err){
+                console.error('error', err);
+            })
+        }
 
         ctrl.currentPage = 'accueil';
 
