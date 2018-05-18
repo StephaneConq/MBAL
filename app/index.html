@@ -51,12 +51,13 @@
                     <input class="mdl-textfield__input" type="password" id="pass" ng-model="user.password">
                     <label class="mdl-textfield__label" for="pass">Mot de passe</label>
                 </div>
+                <div class="center-align connection-button">
+                    <button ng-click="ctrl.loginFct(user);" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                        CONNEXION
+                    </button>
+                </div>
             </form>
-            <div class="center-align">
-                <button ng-click="ctrl.loginFct(user);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    Connexion
-                </button>
-            </div>
+
         </div>
         <div class="mdl-tabs__panel" id="signup">
             <ul>

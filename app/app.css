@@ -131,7 +131,13 @@ nav{
 
 .connection-tabs  .mdl-tabs__panel form{
     width: 50%;
+    position: relative;
     margin: auto;
+    top: 25%;
+}
+
+.connection-button{
+    margin-top: 50px;
 }
 
 
